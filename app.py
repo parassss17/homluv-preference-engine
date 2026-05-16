@@ -57,6 +57,8 @@ max_price = st.sidebar.slider(
     int(listings["price"].median()),
     step=10000,
 )
+zip_options = ["Any location"] + sorted(listings["zipcode"].unique().tolist())
+chosen_zip = st.sidebar.selectbox("Location (zip code)", zip_options)
 if st.sidebar.button("Reset my choices"):
     st.session_state.liked = []
     st.session_state.disliked = []
@@ -101,9 +103,10 @@ else:
     taste = build_taste_profile(
         embeddings, st.session_state.liked, st.session_state.disliked
     )
-    affordable = filter_by_budget(listings, max_price=max_price)
+    zip_filter = None if chosen_zip == "Any location" else chosen_zip
+    affordable = filter_by_budget(listings, max_price=max_price, zipcode=zip_filter)
     if affordable.empty:
-        st.warning("No homes under that budget. Raise the slider on the left.")
+        st.warning("No homes match that budget + location. Widen the filters on the left.")
     else:
         recs = recommend(
             embeddings.take(affordable.index, axis=0),
@@ -115,7 +118,7 @@ else:
 
         builder, count = match_builder(recs)
         if builder:
-            st.success(f"Best-matched builder for your taste & budget: "
+            st.success(f"Best-matched builder for your taste, budget & location: "
                        f"**{builder}** ({count} of {len(recs)} top matches)")
 
         cols = st.columns(3)
