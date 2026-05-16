@@ -70,7 +70,7 @@ st.sidebar.write(f"Disliked: {len(st.session_state.disliked)}")
 def show_home(row, key_prefix, with_buttons=True):
     img_path = os.path.join(IMG_DIR, row["image"])
     if os.path.exists(img_path):
-        st.image(img_path, use_container_width=True)
+        st.image(img_path, use_column_width=True)
     st.write(f"**${int(row['price']):,}** · {int(row['bedrooms'])} bd / "
              f"{int(row['bathrooms'])} ba · zip {int(row['zipcode'])}")
     if with_buttons:
