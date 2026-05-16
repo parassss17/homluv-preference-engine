@@ -1,0 +1,7 @@
+# Local-only: needed to RUN prepare_data.py and the notebooks once.
+# These are NOT installed on the deployed app.
+-r requirements.txt
+torch==2.11.0
+torchvision==0.26.0
+jupyter==1.1.1
+matplotlib==3.9.2

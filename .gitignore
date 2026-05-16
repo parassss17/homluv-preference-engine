@@ -1,0 +1,12 @@
+# Raw dataset (downloaded locally, too big to commit)
+data/Houses-dataset/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store

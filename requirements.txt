@@ -1,0 +1,6 @@
+# Deployed app dependencies only (light, no PyTorch on the server).
+streamlit==1.39.0
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+Pillow==10.4.0
