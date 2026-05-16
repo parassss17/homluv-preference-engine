@@ -1,6 +1,8 @@
 # Deployed app dependencies only (light, no PyTorch on the server).
-streamlit==1.39.0
-numpy==1.26.4
-pandas==2.2.2
-scikit-learn==1.5.1
-Pillow==10.4.0
+# Ranges (not hard pins) so the host picks versions with prebuilt wheels
+# for whatever Python it runs -- avoids slow/failing source builds.
+streamlit>=1.39,<2.0
+numpy>=1.26
+pandas>=2.2,<2.3
+scikit-learn>=1.5
+Pillow>=10.0
