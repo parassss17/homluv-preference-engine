@@ -1,3 +1,15 @@
+---
+title: HomLuv Preference Engine
+emoji: 🏠
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+sdk_version: 1.39.0
+app_file: app.py
+python_version: "3.12"
+pinned: false
+---
+
 # HomLuv — Visual Home Preference Engine (Prototype)
 
 A working prototype of [HomLuv](https://www.homluv.com/)'s core idea, built
